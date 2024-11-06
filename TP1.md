@@ -848,7 +848,7 @@ Name
 13th Gen Intel(R) Core(TM) i9-13900HX
 ```
 
-# Version
+## Version
 
 ```powershell
 PS C:\Users\miche> Get-CimInstance -ClassName Win32_OperatingSystem | Select-Object Caption, Version
@@ -858,7 +858,7 @@ Caption                   Version
 Microsoft Windows 11 Home 10.0.22631
 ```
 
-# Mise à jour
+## Mise à jour
 
 ```powershell
 PS C:\Users\miche> Get-CimInstance -ClassName Win32_QuickFixEngineering | Sort-Object InstalledOn -Descending | Select-Object -First 1 InstalledOn
@@ -866,4 +866,13 @@ PS C:\Users\miche> Get-CimInstance -ClassName Win32_QuickFixEngineering | Sort-O
 InstalledOn
 -----------
 24/10/2024 00:00:00
+```
+
+# Ptit amusement
+
+## Lister les connexions actives:
+
+```powershell
+
+
 ```
