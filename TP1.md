@@ -1,6 +1,7 @@
-
 # TP1 POWERSHELL
+
 ## Lister tous les processus en cours d'exécution sur votre machine
+
 ```powershell
 PS C:\Users\miche> get-process
 
@@ -277,7 +278,9 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
     273      14     4812      12912              2584   0 WUDFHost
     373      19     5088      20420       0.22  24432   1 XboxPcAppFT
 ```
+
 ## Trouver les 3 processus qui ont le plus petit identifiant
+
 ```powershell
 PS C:\Users\miche> Get-Process | Sort-Object Id | Select-Object -First 3 Name, Id
 
@@ -287,7 +290,9 @@ Idle            0
 System          4
 Secure System 300
 ```
+
 ## Lister tous les services de la machine...
+
 ```powershell
 PS C:\Users\miche> Get-Service | Where-Object { $_.Status -eq 'Running' } | Select-Object DisplayName, Status
 
@@ -441,6 +446,7 @@ Security Center                                            Running
 Windows Search                                             Running
 Xbox Live Auth Manager                                     Running
 ```
+
 ```
 PS C:\Users\miche> Get-Service | Where-Object { $_.Status -eq 'Stopped' } | Select-Object DisplayName, Status
 
@@ -609,22 +615,255 @@ Xbox Live Game Save                                                             
 Xbox Accessory Management Service                                                  Stopped
 Xbox Live Networking Service                                                       Stopped
 ```
+
 # MEMOIRE ET CPU
+
 ## RAM
-```powershell
+
+````powershell
 PS C:\Users\miche> (Get-CimInstance -ClassName Win32_ComputerSystem).TotalPhysicalMemory / 1GB
 31.726432800293
 ```powershell
 PS C:\Users\miche> (Get-CimInstance -ClassName Win32_OperatingSystem).FreePhysicalMemory / 1MB
 21.4614677429199
-```
+````
+
 ## CPU
+
 ```powershell
 PS C:\Users\miche> Get-CimInstance -ClassName Win32_Processor | Select-Object -ExpandProperty LoadPercentage
 1
 ```
 
+# Stockage
 
+# Périphériques
 
+## Avant de brancher la cle usb
 
+```powershell
+PS C:\Users\miche> Get-CimInstance -ClassName Win32_DiskDrive | Select-Object Model, Size
 
+Model                                   Size
+-----                                   ----
+NVMe Micron_3400_MTFDKBA1T0TFH 1024203640320
+```
+
+## Apres avoir brancher la cle usb
+
+```
+PS C:\Users\miche> Get-CimInstance -ClassName Win32_DiskDrive | Select-Object Model, Size
+
+Model                                         Size
+-----                                         ----
+Kingston DataTraveler 3.0 USB Device  247959290880
+NVMe Micron_3400_MTFDKBA1T0TFH       1024203640320
+```
+
+## Partitions
+
+```powershell
+PS C:\Users\miche> Get-Partition | Select-Object DriveLetter, Size, PartitionType
+
+DriveLetter          Size PartitionType
+-----------          ---- -------------
+               272629760
+                16777216
+          C 1022836604928
+              1073741824
+          D  247967219712
+```
+
+## Espace disque
+
+```powershell
+PS C:\Users\miche> (Get-PSDrive -Name C).Free / 1GB
+666.887325286865
+```
+
+# RESEAU
+
+## Cartes réseau
+
+```powershell
+PS C:\Users\miche> Get-NetIPAddress | Select-Object InterfaceAlias, IPAddress
+
+InterfaceAlias              IPAddress
+--------------              ---------
+Local Area Connection* 2    fe80::a13c:78db:d54e:2c4%8
+Local Area Connection* 1    fe80::51d1:b5e9:c997:16a9%17
+WiFi                        fe80::9222:5b2e:55dd:65d3%7
+Ethernet                    fe80::c90c:1349:f518:37e6%6
+Loopback Pseudo-Interface 1 ::1
+Local Area Connection* 2    169.254.236.95
+Local Area Connection* 1    169.254.30.32
+WiFi                        10.3.220.143
+Ethernet                    169.254.118.130
+Loopback Pseudo-Interface 1 127.0.0.1
+```
+
+## Connexions reseau
+
+```powershell
+PS C:\Users\miche> Get-NetTCPConnection -State Established | ForEach-Object {
+>>     $process = Get-Process -Id $_.OwningProcess
+>>     [PSCustomObject]@{
+>>         "Remote Address" = $_.RemoteAddress
+>>         "Process Name" = $process.ProcessName
+>>         "Process ID" = $_.OwningProcess
+>>     }
+>> } | Format-Table -AutoSize
+
+Remote Address Process Name              Process ID
+-------------- ------------              ----------
+::1            PredatorSense                   3752
+::1            PredatorSense                  16812
+::1            PredatorSense                  16812
+::1            PredatorSense                  16812
+::1            PredatorSense                  16812
+::1            PredatorSense                   3752
+::1            PredatorSense                   3752
+::1            AcerQAAgent                     5240
+::1            AcerDIAgent                     5304
+::1            AcerCCAgent                     5296
+127.0.0.1      nvcontainer                     5524
+151.101.1.229  brave                          45424
+13.32.221.51   brave                          45424
+104.17.248.203 brave                          45424
+34.128.128.0   brave                          45424
+104.18.32.47   brave                          45424
+104.18.32.47   brave                          45424
+172.64.146.15  brave                          45424
+172.64.152.228 brave                          45424
+104.18.32.47   brave                          45424
+172.64.155.209 brave                          45424
+10.3.201.187   svchost                        21828
+10.3.218.248   svchost                        21828
+10.3.202.29    svchost                        21828
+10.3.203.158   svchost                        21828
+10.3.201.92    svchost                        21828
+10.3.201.221   svchost                        21828
+10.3.220.148   svchost                        21828
+127.0.0.1      NVIDIA Share                    8808
+20.238.236.234 msedge                         34904
+20.199.120.85  svchost                         5620
+127.0.0.1      nvcontainer                     5524
+20.223.35.26   SystemSettings                 40896
+127.0.0.1      ADESv2Svc                       5164
+127.0.0.1      AppleMobileDeviceProcess       20168
+127.0.0.1      AppleMobileDeviceProcess       20168
+127.0.0.1      AppleMobileDeviceLauncher      20392
+127.0.0.1      AppleMobileDeviceLauncher      20392
+127.0.0.1      PredatorSense                   3752
+127.0.0.1      PredatorSense                   3752
+127.0.0.1      NVIDIA Web Helper              11684
+127.0.0.1      AQAUserPS                      13144
+127.0.0.1      AcerLightingService             5208
+127.0.0.1      WUDFHost                        2584
+127.0.0.1      WUDFHost                        2584
+127.0.0.1      ipfsvc                          5700
+127.0.0.1      ipfsvc                          5700
+127.0.0.1      NVDisplay.Container             2652
+127.0.0.1      NVDisplay.Container             2652
+127.0.0.1      WUDFHost                        1992
+127.0.0.1      WUDFHost                        1992
+127.0.0.1      AcerAgentService                5760
+127.0.0.1      AcerAgentService                5760
+127.0.0.1      ADESv2Svc                       5164
+127.0.0.1      ADESv2Svc                       5164
+127.0.0.1      AcerAgentService                5760
+10.3.204.234   svchost                        21828
+10.3.201.122   svchost                        21828
+127.0.0.1      OpenRGB                        12072
+127.0.0.1      AcerQAAgent                     5240
+```
+
+# UTILISATEURS
+
+## Lister les utilisateurs de la machine:
+
+```powershell
+PS C:\Users\miche> Get-LocalUser
+
+Name               Enabled Description
+----               ------- -----------
+Administrator      False   Built-in account for administering the computer/domain
+DefaultAccount     False   A user account managed by the system.
+Guest              False   Built-in account for guest access to the computer/domain
+miche              True
+WDAGUtilityAccount False   A user account managed and used by the system for Windows...
+```
+
+## Heure du Login:
+
+```powershell
+PS C:\Users\miche> (Get-WmiObject Win32_LogonSession | Where-Object { $_.LogonType -eq 2
+ }).StartTime
+20241024083813.151651+120
+20241024083813.150650+120
+```
+
+## Lister les processus en cours d'exécution:
+
+```powershell
+S C:\Users\miche> Get-WmiObject Win32_LogonSession | Where-Object { $_.LogonType -eq 2 } | ForEach-Object {
+>>     $logonSession = $_
+>>     $logonUser = Get-WmiObject Win32_Account | Where-Object { $_.SID -eq $logonSession.__RELPATH.Split('"')[1] }
+>>     [PSCustomObject]@{
+>>         UserName  = $logonUser.Name
+>>         StartTime = $logonSession.StartTime
+>>     }
+>> }
+
+UserName StartTime
+-------- ---------
+         20241024083813.151651+120
+         20241024083813.150650+120
+```
+
+## Sur un fichier random qui se trouve dans votre dossier Téléchargements/
+
+```powershell
+
+```
+
+# RANDOM
+
+## Uptime
+
+```powershell
+PS C:\Users\miche> (Get-CimInstance -ClassName win32_operatingsystem).LastBootUpTime
+
+24 October 2024 08:36:37
+```
+
+## Device
+
+```powershell
+
+PS C:\Users\miche> Get-CimInstance -ClassName Win32_Processor | Select-Object Name
+
+Name
+----
+13th Gen Intel(R) Core(TM) i9-13900HX
+```
+
+# Version
+
+```powershell
+PS C:\Users\miche> Get-CimInstance -ClassName Win32_OperatingSystem | Select-Object Caption, Version
+
+Caption                   Version
+-------                   -------
+Microsoft Windows 11 Home 10.0.22631
+```
+
+# Mise à jour
+
+```powershell
+PS C:\Users\miche> Get-CimInstance -ClassName Win32_QuickFixEngineering | Sort-Object InstalledOn -Descending | Select-Object -First 1 InstalledOn
+
+InstalledOn
+-----------
+24/10/2024 00:00:00
+```
