@@ -1116,3 +1116,27 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 
 
 ```
+
+## En apprendre + sur le processus en cours d'exécution
+
+```powershell
+
+```
+
+## En apprendre + sur le programme
+
+```powershell
+
+```
+
+## En apprendre + sur l'adresse IP
+
+```powershell
+
+```
+
+## Délai
+
+```powershell
+
+```
