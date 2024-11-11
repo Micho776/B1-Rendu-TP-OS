@@ -42,3 +42,60 @@ ssh_config    ssh_host_ecdsa_key      ssh_host_rsa_key
 ssh_config.d  ssh_host_ecdsa_key.pub  ssh_host_rsa_key.pub
 sshd_config   ssh_host_ed25519_key
 ```
+
+### II-Users
+
+#### A-Nouveau User
+
+1/
+
+```powershell
+useradd -m -d /home/papier_alu marmotte
+passwd marmotte
+```
+
+#### B- Infos Enregistres par le Systeme
+
+1/
+
+```powershell
+root@TP-OS:~ cat /etc/passwd | grep marmotte
+marmotte:x:1001:1001::/home/papier_alu:/bin/sh
+```
+
+2/
+
+```powershell
+root@TP-OS:~ sudo cat /etc/shadow | grep marmotte
+marmotte:$y$j9T$xUBV.Wsoih8Mxrh9njY8y.$ArkteL1G9PuWBoZ6xNQj6Aszf5huXXAXh1mQcNXhhv2:20038:0:99999:7:::
+```
+
+#### D-Connexion sur le Nouvel Utilisateur
+
+1/
+
+```powershell
+micho776@TP-OS:~$ exit
+logout
+Connection to 192.168.25.37 closed.
+PS C:\Users\miche> ssh marmotte@192.168.25.37
+marmotte@192.168.25.37's password:
+Linux TP-OS 6.1.0-26-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.112-1 (2024-09-30) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+ls
+ls: cannot open directory '/home/micho776': Permission denied
+```
+
+## 3-Programmes et Paquets
+
+### I-Programmes et Processus
+
+#### A- Run then Kill
+
+1/
