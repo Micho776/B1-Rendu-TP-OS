@@ -99,3 +99,110 @@ ls: cannot open directory '/home/micho776': Permission denied
 #### A- Run then Kill
 
 1/
+
+```powershell
+sleep 1000
+ps -A | grep sleep
+ 9674 pts/1    00:00:00 sleep
+```
+
+2/
+
+```powershell
+kill  9674
+```
+
+#### B-Tache de Fond
+
+1/
+
+```powershell
+sleep 1000&
+```
+
+2/
+
+```powershell
+ps -e | grep sleep
+  9683 pts/1    00:00:00 sleep
+```
+
+#### C-Find Paths
+
+1/
+
+```powershell
+find / -type f -name ".bashrc"
+/usr/bin/sleep
+/usr/lib/klibc/bin/sleep
+```
+
+2/
+
+```powershell
+find / -type f -name ".bashrc"
+/home/micho776/gameshell/gameshell/World/.bashrc
+/home/micho776/.bashrc
+/home/papier_alu/.bashrc
+/etc/skel/.bashrc
+```
+
+#### D-La Variable Path
+
+1/
+
+```powershell
+micho776@TP-OS:~$ which sleep
+/usr/bin/sleep
+micho776@TP-OS:~$ which ssh
+/usr/bin/ssh
+micho776@TP-OS:~$ which ping
+/usr/bin/ping
+micho776@TP-OS:~$ echo $PATH
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+```
+
+### II-Paquets
+
+1/
+
+```powershell
+micho776@TP-OS:~$ su - root
+Password:
+root@TP-OS:~ sudo apt install git
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+```
+
+2/
+
+```powershell
+micho776@TP-OS:~$ which firefox
+/usr/bin/firefox
+```
+
+3/
+
+```powershell
+micho776@TP-OS:~$ cat /etc/apt/sources.list
+#deb cdrom:[Debian GNU/Linux 12.7.0 _Bookworm_ - Official amd64 NETINST with firmware 20240831-10:38]/ bookworm contrib main non-free-firmware
+
+deb http://deb.debian.org/debian/ bookworm main non-free-firmware
+deb-src http://deb.debian.org/debian/ bookworm main non-free-firmware
+
+deb http://security.debian.org/debian-security bookworm-security main non-free-firmware
+deb-src http://security.debian.org/debian-security bookworm-security main non-free-firmware
+
+# bookworm-updates, to get updates before a point release is made;
+# see https://www.debian.org/doc/manuals/debian-reference/ch02.en.html#_updates_and_backports
+deb http://deb.debian.org/debian/ bookworm-updates main non-free-firmware
+deb-src http://deb.debian.org/debian/ bookworm-updates main non-free-firmware
+
+# This system was installed using small removable media
+# (e.g. netinst, live or single CD). The matching "deb cdrom"
+# entries were disabled at the end of the installation process.
+# For information about how to configure apt package sources,
+# see the sources.list(5) manual.
+```
