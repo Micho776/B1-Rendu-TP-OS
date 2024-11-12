@@ -206,3 +206,75 @@ deb-src http://deb.debian.org/debian/ bookworm-updates main non-free-firmware
 # For information about how to configure apt package sources,
 # see the sources.list(5) manual.
 ```
+
+## 4-Poupee Russe
+
+1/
+
+```powershell
+micho776@TP-OS:~$ wget https://gitlab.com/it4lik/b1-os/-/raw/main/tp/2/meow
+--2024-11-12 01:22:13--  https://gitlab.com/it4lik/b1-os/-/raw/main/tp/2/meow
+Resolving gitlab.com (gitlab.com)... 172.65.251.78, 2606:4700:90:0:f22e:fbec:5bed:a9b9
+Connecting to gitlab.com (gitlab.com)|172.65.251.78|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 18016947 (17M) [application/octet-stream]
+Saving to: ‘meow’
+
+meow                  100%[========================>]  17.18M  13.5MB/s    in 1.3s
+
+2024-11-12 01:22:15 (13.5 MB/s) - ‘meow’ saved [18016947/18016947]
+```
+
+2/
+
+```powershell
+micho776@TP-OS:~/Downloads$ file meow
+meow: Zip archive data, at least v2.0 to extract, compression method=deflate
+micho776@TP-OS:~/Downloads$ mv meow meow.zip
+micho776@TP-OS:~/Downloads$ ls
+meow.zip
+```
+
+3/
+
+```powershell
+micho776@TP-OS:~/Downloads$ unzip meow.zip
+Archive:  meow.zip
+  inflating: meow
+micho776@TP-OS:~/Downloads$ ls
+meow  meow.zip
+micho776@TP-OS:~/Downloads$ file meow
+meow: XZ compressed data, checksum CRC64
+micho776@TP-OS:~/Downloads$ mv meow meow.xz
+micho776@TP-OS:~/Downloads$ xz -d meow.xz
+micho776@TP-OS:~/Downloads$ file meow
+meow: bzip2 compressed data, block size = 900k
+micho776@TP-OS:~/Downloads$ bzip2 -d meow
+bzip2: Can't guess original name for meow -- using meow.out
+file meow.out
+meow.out: RAR archive data, v5
+micho776@TP-OS:~/Downloads$ sudo apt install unrar-free
+micho776@TP-OS:~/Downloads$ unrar meow.out
+
+unrar-free 0.1.3  Copyright (C) 2004  Ben Asselstine, Jeroen Dekkers
+
+
+Extracting from /home/micho776/Downloads/meow.out
+
+Extracting  meow                                                      OK
+All OK
+micho776@TP-OS:~/Downloads$ file meow
+meow: gzip compressed data, from Unix, original size modulo 2^32 145049600 gzip compressed data, reserved method, has CRC, extra field, has comment, from FAT filesystem (MS-DOS, OS/2, NT), original size modulo 2^32 145049600
+micho776@TP-OS:~/Downloads$ mv meow.gzip meow.gz
+micho776@TP-OS:~/Downloads$ gzip -d meow.gz
+micho776@TP-OS:~/Downloads$ file meow
+meow: POSIX tar archive (GNU)
+micho776@TP-OS:~/Downloads$ mv meow meow.tar
+micho776@TP-OS:~/Downloads$ tar -xvf meow.tar
+```
+
+4/
+
+```powershell
+
+```
