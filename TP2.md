@@ -276,5 +276,17 @@ micho776@TP-OS:~/Downloads$ tar -xvf meow.tar
 4/
 
 ```powershell
+micho776@TP-OS:~/Downloads/dawa$ find . -type f -size 15M
+./folder31/19/file39
+micho776@TP-OS:~/Downloads/dawa$  grep -L '[^7]' * -r
+folder43/38/file41
+micho776@TP-OS:~/Downloads/dawa$ find . -type f -name "cookie"
+./folder14/25/cookie
+micho776@TP-OS:~/Downloads/dawa$ find . -type f -name ".*"
+./folder32/14/.hidden_file
+micho776@TP-OS:~/Downloads/dawa$ find . -type f -newermt "2014-01-01" ! -newermt "2015-01-01"
+./folder36/40/file43
+micho776@TP-OS:~/Downloads/dawa$ find . -type f -path './*/*/*/*/*/*'
+./folder37/45/23/43/54/file43
 
 ```
