@@ -437,7 +437,7 @@ Disassembly of section .fini:
 
 ##### 🌞 Essayez d'exécuter le programme hello4
 
-```poweershell
+```powershell
 micho@Deb:~/work$ ./hello3
 Hello, World!
 micho@Deb:~/work$ ./hello4
@@ -452,7 +452,7 @@ micho@Deb:~/work$ ./hello4
 
 ##### 🌞 Avec une commande apt search, déterminez si le paquet ghidra est disponible
 
-```poweershell
+```powershell
 micho@Deb:~/work$ apt search ghidra
 Sorting... Done
 Full Text Search... Done
@@ -466,7 +466,7 @@ micho@Deb:~/work$ sudo nano /etc/apt/sources.list
 
 ##### 🌞 Ajoutez la clé publique des gars de chez Kali
 
-```poweershell
+```powershell
 micho@Deb:~/work$ wget https://archive.kali.org/archive-key.asc -O /etc/apt/trusted.gpg.d/kali-archive-keyring.asc
 /etc/apt/trusted.gpg.d/kali-archive-keyring.asc: Permission denied
 micho@Deb:~/work$ sudo !!
@@ -485,7 +485,7 @@ Saving to: ‘/etc/apt/trusted.gpg.d/kali-archive-keyring.asc’
 
 ##### 🌞 Mettez à jour la liste des dépôts que votre OS connaît actuellement
 
-```poweershell
+```powershell
 micho@Deb:~/work$ sudo apt update -y
 Get:1 http://security.debian.org/debian-security bookworm-security InRelease [48.0 kB]
 Hit:2 http://deb.debian.org/debian bookworm InRelease
@@ -507,7 +507,7 @@ Reading state information... Done
 
 ##### 🌞 Avec une commande apt search, déterminez si le paquet ghidra est disponible
 
-```poweershell
+```powershell
 micho@Deb:~/work$ apt search ghidra
 Sorting... Done
 Full Text Search... Done
@@ -533,7 +533,7 @@ rz-ghidra-dbgsym/kali-rolling 0.7.0-0kali1+b1 amd64
 
 ##### 🌞 Installez le paquet ghidra
 
-```poweershell
+```powershell
 micho@Deb:~/work$ apt search ghidra
 Sorting... Done
 Full Text Search... Done
@@ -551,12 +551,14 @@ ghidra-dbgsym/kali-rolling 11.0+ds-0kali1 amd64
 
 ##### 🌞 Récupérez le code de password_2.c sur la machine Linux et compilez-le
 
-```poweershell
+```powershell
+micho@Deb:~/work$ x86_64-linux-gnu-gcc -fno-stack-protector -g -o password_2 password_2.c -lcrypto -Wno-deprecated-declarations
+micho@Deb:~/work$ ghidra
 
 ```
 
 #### 3. Root-me
 
-```poweershell
+```powershell
 
 ```
