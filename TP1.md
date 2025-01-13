@@ -1126,17 +1126,50 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 ## En apprendre + sur le programme
 
 ```powershell
+PS C:\Users\miche> Get-Process -Name Brave | Select-Object Name, Path
+
+Name  Path
+----  ----
+brave C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe
+
 
 ```
 
 ## En apprendre + sur l'adresse IP
 
 ```powershell
+PS C:\Users\miche> Invoke-RestMethod -Method Get -Uri http://ip-api.com/json/13.37.13.37
 
+
+status      : success
+country     : France
+countryCode : FR
+region      : IDF
+regionName  : Île-de-France
+city        : Paris
+zip         : 75000
+lat         : 48.8566
+lon         : 2.35222
+timezone    : Europe/Paris
+isp         : Amazon Technologies Inc.
+org         : AWS EC2 (eu-west-3)
+as          : AS16509 Amazon.com, Inc.
+query       : 13.37.13.37
 ```
 
 ## Délai
 
 ```powershell
+PS C:\Users\miche> ping 172.65.251.78
 
+Pinging 172.65.251.78 with 32 bytes of data:
+Reply from 172.65.251.78: bytes=32 time=19ms TTL=52
+Reply from 172.65.251.78: bytes=32 time=21ms TTL=52
+Reply from 172.65.251.78: bytes=32 time=19ms TTL=52
+Reply from 172.65.251.78: bytes=32 time=20ms TTL=52
+
+Ping statistics for 172.65.251.78:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 19ms, Maximum = 21ms, Average = 19ms
 ```
