@@ -447,174 +447,177 @@ Windows Search                                             Running
 Xbox Live Auth Manager                                     Running
 ```
 
-```
-PS C:\Users\miche> Get-Service | Where-Object { $_.Status -eq 'Stopped' } | Select-Object DisplayName, Status
+powershell
+PS C:\Users\miche> Get-Service | Where-Object { $\_.Status -eq 'Stopped' } | Select-Object DisplayName, Status
 
-DisplayName                                                                         Status
------------                                                                         ------
-Agent Activation Runtime_1a3a64                                                    Stopped
-AllJoyn Router Service                                                             Stopped
-Application Layer Gateway Service                                                  Stopped
-Application Identity                                                               Stopped
-App Readiness                                                                      Stopped
-Cellular Time                                                                      Stopped
-ActiveX Installer (AxInstSV)                                                       Stopped
-Battle.net Update Helper Svc                                                       Stopped
-GameDVR and Broadcast User Service_1a3a64                                          Stopped
-BitLocker Drive Encryption Service                                                 Stopped
-Background Intelligent Transfer Service                                            Stopped
-Brave Update Service (brave)                                                       Stopped
-Brave Elevation Service (BraveElevationService)                                    Stopped
-Brave Update Service (bravem)                                                      Stopped
-CaptureService_1a3a64                                                              Stopped
-Certificate Propagation                                                            Stopped
-Client Licence Service (ClipSVC)                                                   Stopped
-Cloud Backup and Restore Service_1a3a64                                            Stopped
-COM+ System Application                                                            Stopped
-ConsentUX User Service_1a3a64                                                      Stopped
-CredentialEnrollmentManagerUserSvc_1a3a64                                          Stopped
-Declared Configuration(DC) service                                                 Stopped
-Optimise drives                                                                    Stopped
-DeviceAssociationBroker_1a3a64                                                     Stopped
-DevicePicker_1a3a64                                                                Stopped
-Microsoft (R) Diagnostics Hub Standard Collector Service                           Stopped
-Diagnostic Execution Service                                                       Stopped
-Device Management Enrollment Service                                               Stopped
+DisplayName Status
+
+---
+
+Agent Activation Runtime_1a3a64 Stopped
+AllJoyn Router Service Stopped
+Application Layer Gateway Service Stopped
+Application Identity Stopped
+App Readiness Stopped
+Cellular Time Stopped
+ActiveX Installer (AxInstSV) Stopped
+Battle.net Update Helper Svc Stopped
+GameDVR and Broadcast User Service_1a3a64 Stopped
+BitLocker Drive Encryption Service Stopped
+Background Intelligent Transfer Service Stopped
+Brave Update Service (brave) Stopped
+Brave Elevation Service (BraveElevationService) Stopped
+Brave Update Service (bravem) Stopped
+CaptureService_1a3a64 Stopped
+Certificate Propagation Stopped
+Client Licence Service (ClipSVC) Stopped
+Cloud Backup and Restore Service_1a3a64 Stopped
+COM+ System Application Stopped
+ConsentUX User Service_1a3a64 Stopped
+CredentialEnrollmentManagerUserSvc_1a3a64 Stopped
+Declared Configuration(DC) service Stopped
+Optimise drives Stopped
+DeviceAssociationBroker_1a3a64 Stopped
+DevicePicker_1a3a64 Stopped
+Microsoft (R) Diagnostics Hub Standard Collector Service Stopped
+Diagnostic Execution Service Stopped
+Device Management Enrollment Service Stopped
 Device Management Wireless Application Protocol (WAP) Push message Routing Service Stopped
-Wired AutoConfig                                                                   Stopped
-Device Setup Manager                                                               Stopped
-Easy Anti-Cheat (Epic Online Services)                                             Stopped
-Microsoft Edge Update Service (edgeupdate)                                         Stopped
-Microsoft Edge Update Service (edgeupdatem)                                        Stopped
-Encrypting File System (EFS)                                                       Stopped
-Embedded Mode                                                                      Stopped
-Enterprise App Management Service                                                  Stopped
-Epic Online Services                                                               Stopped
-Function Discovery Provider Host                                                   Stopped
-Function Discovery Resource Publication                                            Stopped
-File History Service                                                               Stopped
-FileSyncHelper                                                                     Stopped
-Windows Presentation Foundation Font Cache 3.0.0.0                                 Stopped
-Windows Camera Frame Server                                                        Stopped
-Windows Camera Frame Server Monitor                                                Stopped
-NVIDIA FrameView SDK service                                                       Stopped
-GameInput Service                                                                  Stopped
-Google Chrome Elevation Service (GoogleChromeElevationService)                     Stopped
-Google updater internal service (GoogleUpdaterInternalService131.0.6776.0)         Stopped
-Google updater service (GoogleUpdaterService131.0.6776.0)                          Stopped
-Group Policy Client                                                                Stopped
-GraphicsPerfSvc                                                                    Stopped
-Human Interface Device Service                                                     Stopped
-Intel(R) Platform License Manager Service                                          Stopped
-IP Translation Configuration Service                                               Stopped
-KtmRm for Distributed Transaction Coordinator                                      Stopped
-Link-Layer Topology Discovery Mapper                                               Stopped
-Language Experience Service                                                        Stopped
-Downloaded Maps Manager                                                            Stopped
-McpManagementService                                                               Stopped
-MessagingService_1a3a64                                                            Stopped
-Microsoft Edge Elevation Service (MicrosoftEdgeElevationService)                   Stopped
-Windows Mixed Reality OpenXR Service                                               Stopped
-Distributed Transaction Coordinator                                                Stopped
-Microsoft iSCSI Initiator Service                                                  Stopped
-Windows Installer                                                                  Stopped
-Natural Authentication                                                             Stopped
-Network Connectivity Assistant                                                     Stopped
-Network Connected Devices Auto-Setup                                               Stopped
-Netlogon                                                                           Stopped
-Net.Tcp Port Sharing Service                                                       Stopped
-Network Location Awareness                                                         Stopped
-OneDrive Updater Service                                                           Stopped
-Peer Networking Identity Manager                                                   Stopped
-Peer Networking Grouping                                                           Stopped
-P9RdrService_1a3a64                                                                Stopped
-PenService_1a3a64                                                                  Stopped
-Windows Perception Simulation Service                                              Stopped
-Performance Counter DLL Host                                                       Stopped
-Performance Logs & Alerts                                                          Stopped
-PNRP Machine Name Publication Service                                              Stopped
-Peer Name Resolution Protocol                                                      Stopped
-IPsec Policy Agent                                                                 Stopped
-Printer Extensions and Notifications                                               Stopped
-PrintWorkflow_1a3a64                                                               Stopped
-Windows PushToInstall Service                                                      Stopped
-Quality Windows Audio Video Experience                                             Stopped
-Remote Access Auto Connection Manager                                              Stopped
-Routing and Remote Access                                                          Stopped
-Remote Registry                                                                    Stopped
-Retail Demo Service                                                                Stopped
-Remote Procedure Call (RPC) Locator                                                Stopped
-Smart Card                                                                         Stopped
-Smart Card Device Enumeration Service                                              Stopped
-Smart Card Removal Policy                                                          Stopped
-Windows Backup                                                                     Stopped
-Secondary Log-on                                                                   Stopped
-Payments and NFC/SE Manager                                                        Stopped
-Sensor Data Service                                                                Stopped
-Sensor Service                                                                     Stopped
-Sensor Monitoring Service                                                          Stopped
-Remote Desktop Configuration                                                       Stopped
-System Guard Runtime Monitor Broker                                                Stopped
-Spatial Data Service                                                               Stopped
-Shared PC Account Manager                                                          Stopped
-Microsoft Storage Spaces SMP                                                       Stopped
-Microsoft Windows SMS Router Service.                                              Stopped
-SNMP Trap                                                                          Stopped
-Windows Perception Service                                                         Stopped
-Software Protection                                                                Stopped
-OpenSSH Authentication Agent                                                       Stopped
-Steam Client Service                                                               Stopped
-Spot Verifier                                                                      Stopped
-Microsoft Software Shadow Copy Provider                                            Stopped
-Telephony                                                                          Stopped
-Remote Desktop Services                                                            Stopped
-Storage Tiers Management                                                           Stopped
-Recommended Troubleshooting Service                                                Stopped
-Windows Modules Installer                                                          Stopped
-Auto Time Zone Updater                                                             Stopped
-Microsoft Update Health Service                                                    Stopped
-Remote Desktop Services UserMode Port Redirector                                   Stopped
-UPnP Device Host                                                                   Stopped
-Volumetric Audio Compositor Service                                                Stopped
-Virtual Disk                                                                       Stopped
-Hyper-V Host Compute Service                                                       Stopped
-Hyper-V Guest Service Interface                                                    Stopped
-Hyper-V Heartbeat Service                                                          Stopped
-Hyper-V Data Exchange Service                                                      Stopped
-Hyper-V Remote Desktop Virtualization Service                                      Stopped
-Hyper-V Guest Shutdown Service                                                     Stopped
-Hyper-V Time Synchronization Service                                               Stopped
-Hyper-V PowerShell Direct Service                                                  Stopped
-Hyper-V Volume Shadow Copy Requestor                                               Stopped
-Volume Shadow Copy                                                                 Stopped
-WaaSMedicSvc                                                                       Stopped
-WalletService                                                                      Stopped
-Warp JIT Service                                                                   Stopped
-Block Level Backup Engine Service                                                  Stopped
-Windows Connect Now - Config Registrar                                             Stopped
-Web Threat Defense Service                                                         Stopped
-Windows Event Collector                                                            Stopped
-Windows Encryption Provider Host Service                                           Stopped
-Problem Reports Control Panel Support                                              Stopped
-Windows Error Reporting Service                                                    Stopped
-Wi-Fi Direct Services Connection Manager Service                                   Stopped
-Still Image Acquisition Events                                                     Stopped
-Windows Remote Management (WS-Management)                                          Stopped
-Windows Insider Service                                                            Stopped
-Microsoft Account Sign-in Assistant                                                Stopped
-Local Profile Assistant Service                                                    Stopped
-Windows Management Service                                                         Stopped
-WMI Performance Adapter                                                            Stopped
-Windows Media Player Network Sharing Service                                       Stopped
-Work Folders                                                                       Stopped
-Parental Controls                                                                  Stopped
-Portable Device Enumerator Service                                                 Stopped
-Windows Update                                                                     Stopped
-WWAN AutoConfig                                                                    Stopped
-Xbox Live Game Save                                                                Stopped
-Xbox Accessory Management Service                                                  Stopped
-Xbox Live Networking Service                                                       Stopped
-```
+Wired AutoConfig Stopped
+Device Setup Manager Stopped
+Easy Anti-Cheat (Epic Online Services) Stopped
+Microsoft Edge Update Service (edgeupdate) Stopped
+Microsoft Edge Update Service (edgeupdatem) Stopped
+Encrypting File System (EFS) Stopped
+Embedded Mode Stopped
+Enterprise App Management Service Stopped
+Epic Online Services Stopped
+Function Discovery Provider Host Stopped
+Function Discovery Resource Publication Stopped
+File History Service Stopped
+FileSyncHelper Stopped
+Windows Presentation Foundation Font Cache 3.0.0.0 Stopped
+Windows Camera Frame Server Stopped
+Windows Camera Frame Server Monitor Stopped
+NVIDIA FrameView SDK service Stopped
+GameInput Service Stopped
+Google Chrome Elevation Service (GoogleChromeElevationService) Stopped
+Google updater internal service (GoogleUpdaterInternalService131.0.6776.0) Stopped
+Google updater service (GoogleUpdaterService131.0.6776.0) Stopped
+Group Policy Client Stopped
+GraphicsPerfSvc Stopped
+Human Interface Device Service Stopped
+Intel(R) Platform License Manager Service Stopped
+IP Translation Configuration Service Stopped
+KtmRm for Distributed Transaction Coordinator Stopped
+Link-Layer Topology Discovery Mapper Stopped
+Language Experience Service Stopped
+Downloaded Maps Manager Stopped
+McpManagementService Stopped
+MessagingService_1a3a64 Stopped
+Microsoft Edge Elevation Service (MicrosoftEdgeElevationService) Stopped
+Windows Mixed Reality OpenXR Service Stopped
+Distributed Transaction Coordinator Stopped
+Microsoft iSCSI Initiator Service Stopped
+Windows Installer Stopped
+Natural Authentication Stopped
+Network Connectivity Assistant Stopped
+Network Connected Devices Auto-Setup Stopped
+Netlogon Stopped
+Net.Tcp Port Sharing Service Stopped
+Network Location Awareness Stopped
+OneDrive Updater Service Stopped
+Peer Networking Identity Manager Stopped
+Peer Networking Grouping Stopped
+P9RdrService_1a3a64 Stopped
+PenService_1a3a64 Stopped
+Windows Perception Simulation Service Stopped
+Performance Counter DLL Host Stopped
+Performance Logs & Alerts Stopped
+PNRP Machine Name Publication Service Stopped
+Peer Name Resolution Protocol Stopped
+IPsec Policy Agent Stopped
+Printer Extensions and Notifications Stopped
+PrintWorkflow_1a3a64 Stopped
+Windows PushToInstall Service Stopped
+Quality Windows Audio Video Experience Stopped
+Remote Access Auto Connection Manager Stopped
+Routing and Remote Access Stopped
+Remote Registry Stopped
+Retail Demo Service Stopped
+Remote Procedure Call (RPC) Locator Stopped
+Smart Card Stopped
+Smart Card Device Enumeration Service Stopped
+Smart Card Removal Policy Stopped
+Windows Backup Stopped
+Secondary Log-on Stopped
+Payments and NFC/SE Manager Stopped
+Sensor Data Service Stopped
+Sensor Service Stopped
+Sensor Monitoring Service Stopped
+Remote Desktop Configuration Stopped
+System Guard Runtime Monitor Broker Stopped
+Spatial Data Service Stopped
+Shared PC Account Manager Stopped
+Microsoft Storage Spaces SMP Stopped
+Microsoft Windows SMS Router Service. Stopped
+SNMP Trap Stopped
+Windows Perception Service Stopped
+Software Protection Stopped
+OpenSSH Authentication Agent Stopped
+Steam Client Service Stopped
+Spot Verifier Stopped
+Microsoft Software Shadow Copy Provider Stopped
+Telephony Stopped
+Remote Desktop Services Stopped
+Storage Tiers Management Stopped
+Recommended Troubleshooting Service Stopped
+Windows Modules Installer Stopped
+Auto Time Zone Updater Stopped
+Microsoft Update Health Service Stopped
+Remote Desktop Services UserMode Port Redirector Stopped
+UPnP Device Host Stopped
+Volumetric Audio Compositor Service Stopped
+Virtual Disk Stopped
+Hyper-V Host Compute Service Stopped
+Hyper-V Guest Service Interface Stopped
+Hyper-V Heartbeat Service Stopped
+Hyper-V Data Exchange Service Stopped
+Hyper-V Remote Desktop Virtualization Service Stopped
+Hyper-V Guest Shutdown Service Stopped
+Hyper-V Time Synchronization Service Stopped
+Hyper-V PowerShell Direct Service Stopped
+Hyper-V Volume Shadow Copy Requestor Stopped
+Volume Shadow Copy Stopped
+WaaSMedicSvc Stopped
+WalletService Stopped
+Warp JIT Service Stopped
+Block Level Backup Engine Service Stopped
+Windows Connect Now - Config Registrar Stopped
+Web Threat Defense Service Stopped
+Windows Event Collector Stopped
+Windows Encryption Provider Host Service Stopped
+Problem Reports Control Panel Support Stopped
+Windows Error Reporting Service Stopped
+Wi-Fi Direct Services Connection Manager Service Stopped
+Still Image Acquisition Events Stopped
+Windows Remote Management (WS-Management) Stopped
+Windows Insider Service Stopped
+Microsoft Account Sign-in Assistant Stopped
+Local Profile Assistant Service Stopped
+Windows Management Service Stopped
+WMI Performance Adapter Stopped
+Windows Media Player Network Sharing Service Stopped
+Work Folders Stopped
+Parental Controls Stopped
+Portable Device Enumerator Service Stopped
+Windows Update Stopped
+WWAN AutoConfig Stopped
+Xbox Live Game Save Stopped
+Xbox Accessory Management Service Stopped
+Xbox Live Networking Service Stopped
+
+`````
 
 # MEMOIRE ET CPU
 
@@ -626,7 +629,7 @@ PS C:\Users\miche> (Get-CimInstance -ClassName Win32_ComputerSystem).TotalPhysic
 ```powershell
 PS C:\Users\miche> (Get-CimInstance -ClassName Win32_OperatingSystem).FreePhysicalMemory / 1MB
 21.4614677429199
-````
+`````
 
 ## CPU
 
